@@ -11,14 +11,17 @@ Pages source: `main` branch, `/docs` directory
 - AI friend-group show experiment: https://knoomdevbot.github.io/viral-product-experiments/friend-group-show/
 
 ## Verification
-- `curl -L` returned HTTP 200 for all three URLs.
-- Page titles verified:
-  - `Viral Product Experiments`
-  - `VibeCard AI — Prototype`
-  - `ShowDrop — Prototype`
+- `curl -L` should return HTTP 200 for all three URLs after each push.
+- Expected page titles after the MVP deployment:
+  - `Viral Product Experiments — Working MVPs`
+  - `VibeCard AI — Working MVP`
+  - `ShowDrop — Working MVP`
+- Browser smoke checklist:
+  - VibeCard generates a card, exposes a production share URL, and creates SVG markup.
+  - ShowDrop validates fewer than 3 cast members, generates Episode 1, unlocks Episode 2 after share/claim, exposes a production share URL, and creates SVG markup.
 
 ## Operational notes
-- Static prototypes only: no server, no database, no secrets.
+- Static MVPs only: no server, no database, no secrets.
 - GitHub Pages is public and HTTPS-enforced.
 - Updating deployment: edit files under `docs/`, commit to `main`, push to GitHub.
 - Rollback: revert the relevant commit and push to `main`.
