@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VibeCard AI — Prototype</title>
+<style>
+:root{--ink:#21172d;--muted:#655a72;--pink:#ff79c8;--blue:#86dcff;--sun:#fff087;--mint:#9ff5d0;--lav:#efe4ff;--paper:#fffaf7}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;background:linear-gradient(135deg,#f8f0ff,#effcff);color:var(--ink);min-height:100vh;display:flex;justify-content:center}.app{width:min(100%,430px);min-height:100vh;background:linear-gradient(180deg,#fffafd 0%,#f6efff 48%,#ecfbff 100%);box-shadow:0 0 0 1px #0001,0 28px 90px #5a337022;padding:18px 16px 34px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{display:flex;gap:10px;align-items:center;font-weight:1000}.logo{width:38px;height:38px;border:2px solid var(--ink);border-radius:14px;background:conic-gradient(from 190deg,var(--pink),var(--sun),var(--blue),var(--pink));display:grid;place-items:center;box-shadow:4px 4px 0 var(--ink)}.pill{border:1.5px solid var(--ink);border-radius:999px;padding:7px 10px;background:#fff;font-size:12px;font-weight:900}.hero{margin:18px 0 14px;padding:20px;border:2px solid var(--ink);border-radius:30px;background:radial-gradient(circle at top right,#fff087 0 18%,transparent 19%),#fff;box-shadow:6px 6px 0 var(--ink)}h1{font-size:34px;line-height:1;margin:12px 0 10px;letter-spacing:-1.2px}.sub{color:var(--muted);font-weight:650;line-height:1.42}.section-title{font-size:14px;font-weight:1000;margin:20px 0 10px;text-transform:uppercase;letter-spacing:.7px}.templates{display:grid;gap:10px}.template{border:2px solid var(--ink);border-radius:22px;background:#fff;padding:14px;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;text-align:left;box-shadow:4px 4px 0 #d8c7ff;cursor:pointer}.template.selected{background:#fff6bf;box-shadow:4px 4px 0 var(--pink)}.emoji{font-size:28px}.template b{display:block;font-size:16px}.template span{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-top:3px}.card{margin-top:14px;padding:16px;border:2px solid var(--ink);border-radius:26px;background:#fff;box-shadow:5px 5px 0 var(--ink)}label{display:block;font-weight:950;margin:12px 0 6px}.input,textarea{width:100%;border:2px solid var(--ink);border-radius:16px;padding:13px 14px;font:inherit;font-weight:700;background:#fff;color:var(--ink)}textarea{min-height:74px;resize:vertical}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1.8px solid var(--ink);background:#fff;border-radius:999px;padding:10px 12px;font-weight:900;cursor:pointer;min-height:42px}.chip.active{background:var(--ink);color:#fff;box-shadow:3px 3px 0 var(--blue)}.primary,.secondary{width:100%;border:2px solid var(--ink);border-radius:17px;padding:15px 14px;font-size:16px;font-weight:1000;cursor:pointer}.primary{background:var(--ink);color:#fff;box-shadow:4px 4px 0 var(--pink)}.secondary{background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--blue)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.actions .wide{grid-column:1/-1}.result-wrap{margin-top:18px}.result-card{aspect-ratio:9/16;border:3px solid var(--ink);border-radius:34px;min-height:590px;padding:22px;box-shadow:8px 8px 0 var(--ink);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}.result-card:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 20% 12%,#fff 0 8%,transparent 9%),radial-gradient(circle at 88% 20%,#fff9 0 10%,transparent 11%),radial-gradient(circle at 20% 86%,#fff8 0 9%,transparent 10%);pointer-events:none}.style-sticker{background:linear-gradient(160deg,#ff8fd7,#fff4a6 52%,#95e9ff)}.style-idol{background:linear-gradient(160deg,#fff,#ffd9f2 38%,#c7f0ff);}.style-fortune{background:linear-gradient(160deg,#20162e,#583b83 55%,#ffda8a);color:#fff}.style-yearbook{background:linear-gradient(160deg,#fff8df,#d7f1ff)}.style-fandom{background:linear-gradient(160deg,#c8b6ff,#ffb3d9 48%,#b9fff0)}.result-card>*{position:relative}.tagline{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.7px}.badge{background:#fff;border:2px solid currentColor;color:inherit;border-radius:999px;padding:7px 10px}.avatar{text-align:center;font-size:70px;filter:drop-shadow(0 7px 0 #0002)}.title{text-align:center;font-size:38px;line-height:.95;font-weight:1000;letter-spacing:-1.5px;text-wrap:balance}.verdict{text-align:center;background:#ffffffcc;color:var(--ink);border:2px solid var(--ink);border-radius:19px;padding:12px;font-weight:950;font-size:16px;line-height:1.25}.style-fortune .verdict{background:#fff8;color:#20162e}.stats{display:grid;gap:8px}.stat{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:15px;padding:10px;font-weight:900}.footer{text-align:center;font-size:12px;font-weight:1000;opacity:.85}.hidden{display:none}.caption{font-size:13px;text-align:center;color:var(--muted);font-weight:700;margin:10px 0}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 16px;border-radius:999px;font-weight:950;box-shadow:0 12px 40px #0004}.mini{font-size:12px;color:var(--muted);font-weight:800;text-align:center;margin-top:16px}@media(max-width:370px){h1{font-size:30px}.result-card{min-height:540px}.title{font-size:33px}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top"><div class="brand"><div class="logo">✨</div><div>VibeCard AI</div></div><div class="pill">prototype</div></div>
+  <section class="hero">
+    <div class="pill" style="display:inline-block;background:#fff6bf">AI identity cards for the group chat</div>
+    <h1>Make a profile card that knows too much.</h1>
+    <p class="sub">Pick a template, drop a few details, and generate a story-ready card for yourself, a friend, your partner, your pet, or the whole crew.</p>
+  </section>
+
+  <div class="section-title">1. Choose a card template</div>
+  <section class="templates" id="templates"></section>
+
+  <section class="card" id="formCard">
+    <div class="section-title" style="margin-top:0">2. Add the tiny lore</div>
+    <label for="target">Who is this for?</label>
+    <select class="input" id="target"><option>Me</option><option>Friend</option><option>Couple</option><option>Pet</option><option>Family / group</option><option>Creator / artist persona</option></select>
+    <label for="name">Name or nickname</label>
+    <input class="input" id="name" placeholder="Maya, Nugget, The Tuesday Group Chat" value="Maya" />
+    <label for="traits">Three traits / vibe tags</label>
+    <input class="input" id="traits" placeholder="chaotic, loyal, dramatic" value="chaotic, loyal, overprepared" />
+    <label for="context">Context / inside joke / life phase</label>
+    <textarea id="context" placeholder="finals week, dog with CEO energy, artist soft launch">always has snacks, sends voice notes, plans the plan before the plan</textarea>
+
+    <label>Tone</label><div class="chips" id="tones"></div>
+    <label>Visual style</label><div class="chips" id="styles"></div>
+    <button class="primary" id="generate" style="margin-top:16px">Generate my card ✨</button>
+  </section>
+
+  <section class="result-wrap hidden" id="resultWrap">
+    <div class="section-title">3. Your card</div>
+    <div id="result" class="result-card style-sticker"></div>
+    <div class="actions">
+      <button class="secondary" id="regen">Regenerate</button>
+      <button class="secondary" id="toneShift">Edit tone</button>
+      <button class="secondary" id="styleShift">Change style</button>
+      <button class="secondary" id="match">Matching card</button>
+      <button class="primary wide" id="share">Copy share caption</button>
+    </div>
+    <p class="caption">Public launch would export this as a downloadable 9:16 image. This prototype validates artifact desirability and the share loop first.</p>
+  </section>
+  <p class="mini">No login. No private messages. No sensitive data. Just tiny lore → postable card.</p>
+</main>
+<script>
+const templates=[
+ {id:'main',icon:'🌟',title:'Main Character ID',sub:'Solo persona card with cute receipts'},
+ {id:'group',icon:'💬',title:'Group Chat Role',sub:'For the friend, fandom, or chaos council'},
+ {id:'couple',icon:'💞',title:'Couple Dynamic',sub:'Matching soft-roast relationship card'},
+ {id:'pet',icon:'🐾',title:'Pet Aura Card',sub:'For pets with suspiciously strong opinions'},
+ {id:'fortune',icon:'🔮',title:'Tiny Fortune Card',sub:'A pretty little destiny read for today'}
+];
+const tones=['sweet','chaotic','savage-light','wholesome','cinematic','mysterious'];
+const styles=[['sticker','Sticker cute'],['idol','Glossy idol'],['fortune','Fortune'],['yearbook','Yearbook'],['fandom','Fandom photocard']];
+let state={template:'main',tone:'chaotic',style:'sticker',seed:0};
+const $=id=>document.getElementById(id);
+function renderTemplates(){ $('templates').innerHTML=templates.map(t=>`<button class="template ${state.template===t.id?'selected':''}" data-id="${t.id}"><div class="emoji">${t.icon}</div><div><b>${t.title}</b><span>${t.sub}</span></div><b>›</b></button>`).join(''); document.querySelectorAll('.template').forEach(b=>b.onclick=()=>{state.template=b.dataset.id; renderTemplates();}); }
+function renderChips(){ $('tones').innerHTML=tones.map(t=>`<button class="chip ${state.tone===t?'active':''}" data-tone="${t}">${t}</button>`).join(''); document.querySelectorAll('[data-tone]').forEach(b=>b.onclick=()=>{state.tone=b.dataset.tone; renderChips();}); $('styles').innerHTML=styles.map(s=>`<button class="chip ${state.style===s[0]?'active':''}" data-style="${s[0]}">${s[1]}</button>`).join(''); document.querySelectorAll('[data-style]').forEach(b=>b.onclick=()=>{state.style=b.dataset.style; renderChips();}); }
+function pick(arr){return arr[Math.abs(hash(JSON.stringify(form())+state.template+state.tone+state.seed))%arr.length]}
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=((h<<5)-h)+s.charCodeAt(i)|0;return h}
+function form(){return {target:$('target').value,name:$('name').value.trim()||'Mystery Icon',traits:$('traits').value.split(',').map(x=>x.trim()).filter(Boolean),context:$('context').value.trim()}}
+function generate(){const f=form(), temp=templates.find(t=>t.id===state.template); const trait=f.traits[0]||'sparkly';
+ const titleMap={main:['The Soft-Launch Legend','The Plot Armor Friend','The Calendar Goblin','The Main Character With Receipts'],group:['The Group Chat Battery','The Lore Archivist','The Chaos Coordinator','The Screenshot Prophet'],couple:['Golden Retriever x Mastermind','The Soft Chaos Duo','The Always-On-Side Pair','The Plot-Twist Couple'],pet:['Tiny CEO of the Household','The Snack-Motivated Oracle','The Velvet Menace','The Baby With Rent-Free Attitude'],fortune:['Today’s Side Quest Saint','The Lucky Little Menace','The Soft Reset Oracle','Main Character Weather Report']};
+ const verdicts={sweet:`${f.name} turns tiny details into loyalty, snacks, and suspiciously good timing.`,chaotic:`${f.name} is technically the plan and also the reason the plan needs a backup plan.`,"savage-light":`${f.name} has never met a situation they could not improve with confidence and mild drama.`,wholesome:`${f.name} is comfort-core with a secret talent for making ordinary days feel curated.`,cinematic:`${f.name} moves like the trailer dropped before the movie was announced.`,mysterious:`${f.name} is giving private lore, unreadable aura, and oddly accurate timing.`};
+ const icons={main:'🌟',group:'💬',couple:'💞',pet:'🐾',fortune:'🔮'};
+ const lucky=pick(['lucky item: iced drink with crunchy ice','side quest: becoming everyone’s emotional support tab','superpower: making chaos look intentional','weakness: one compliment and the whole brand melts','canon event: saying “quick question” before changing history','aura: limited-edition hallway sparkle']);
+ const stats=[`vibe: ${trait || 'unbothered'} but make it lore`,`social role: ${pick(['planner with plot twists','meme supply chain','designated hype person','tiny menace manager','soft-launch strategist'])}`,`signature move: ${pick(['turning errands into side quests','sending the exact right screenshot','making a spreadsheet emotionally','arriving late with excellent energy'])}`,lucky];
+ $('result').className=`result-card style-${state.style}`;
+ $('result').innerHTML=`<div class="tagline"><span class="badge">${temp.title}</span><span class="badge">${state.tone}</span></div><div class="avatar">${icons[state.template]}</div><div class="title">${pick(titleMap[state.template])}</div><div class="verdict">${verdicts[state.tone]} ${f.context? 'Known lore: '+f.context+'.':''}</div><div class="stats">${stats.map(s=>`<div class="stat">${s}</div>`).join('')}</div><div class="footer">made with VibeCard AI · make mine</div>`;
+ $('resultWrap').classList.remove('hidden'); $('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function toast(msg){let t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1900)}
+$('generate').onclick=generate; $('regen').onclick=()=>{state.seed++;generate()}; $('toneShift').onclick=()=>{state.tone=tones[(tones.indexOf(state.tone)+1)%tones.length];renderChips();generate()}; $('styleShift').onclick=()=>{state.style=styles[(styles.findIndex(s=>s[0]===state.style)+1)%styles.length][0];renderChips();generate()}; $('match').onclick=()=>{$('target').value= state.template==='pet'?'Pet': state.template==='couple'?'Couple':'Friend'; state.template= state.template==='couple'?'couple':'group'; $('name').value='Matching card'; renderTemplates(); generate(); toast('Matching-card flow started')}; $('share').onclick=async()=>{const name=form().name; const cap=`I made ${name}'s VibeCard and it is unfortunately accurate. Make yours: [prototype link]`; try{await navigator.clipboard.writeText(cap);toast('Share caption copied')}catch(e){toast(cap)}};
+renderTemplates(); renderChips();
+</script>
+</body>
+</html>
