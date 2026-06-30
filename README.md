@@ -19,8 +19,9 @@ Working production MVPs for two static, mobile-first viral/social entertainment 
 - Local-only prototype event trail in `localStorage`.
 
 ### ShowDrop
-- In-browser group show package generation.
+- In-browser friend-profile/persona web game generation.
 - Genre slate, group type, premise, and 3–8 cast members.
+- Cast members support name, persona/tiny lore, and optional emoji or image URL avatar.
 - Inline validation for insufficient cast.
 - Poster, Episode 1 hook, cast roles, relationship board.
 - Social unlock via copied share/caption or role claim before Episode 2.

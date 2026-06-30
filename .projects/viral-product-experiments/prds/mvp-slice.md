@@ -24,11 +24,11 @@ Acceptance criteria:
 - Works on mobile-width viewport.
 
 ### ShowDrop
-Value proposition: turn a group into a fictional episodic show package with poster, cast roles, episode beat, relationship board, and social unlock.
+Value proposition: turn a group into a fictional episodic web game with friend/persona avatars, poster, cast roles, episode beat, relationship board, and social unlock.
 
 Critical user journey:
-1. User selects a genre and enters at least three cast members.
-2. App generates a show package in-browser.
+1. User selects a genre and enters at least three cast members with names, personas, and optional emoji/image URL avatars.
+2. App generates a show package in-browser with visible cast avatars/personas.
 3. Episode 2 is locked until user copies a share caption/link or claims a role.
 4. User can download the poster SVG and restore a share URL.
 
