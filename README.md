@@ -1,38 +1,22 @@
-# Viral Product Experiments
+# Viral Product Experiments — Deprecated
 
-Working production MVPs for two static, mobile-first viral/social entertainment experiments.
+This repository is deprecated as an active product workspace.
 
-## Production URLs
+## Active successor
 
-- Index: https://knoomdevbot.github.io/viral-product-experiments/
-- VibeCard AI: https://knoomdevbot.github.io/viral-product-experiments/profile-card/
-- ShowDrop: https://knoomdevbot.github.io/viral-product-experiments/friend-group-show/
+Group Game Maker has moved to its own repository and production site:
 
-## MVP capabilities
+- Repo: https://github.com/knoomdevbot/group-game-maker
+- Production: https://knoomdevbot.github.io/group-game-maker/
 
-### VibeCard AI
-- In-browser collectible profile/result card generation.
-- Card style, target, name, vibe tags, lore, tone, and regeneration seed.
-- Restorable share URL using query parameters.
-- Copyable share caption.
-- Downloadable SVG artifact.
-- Local-only prototype event trail in `localStorage`.
+## Legacy URLs
 
-### ShowDrop
-- In-browser friend-profile/persona web game generation.
-- Genre slate, group type, premise, and 3–8 cast members.
-- Cast members support name, persona/tiny lore, and optional emoji or image URL avatar.
-- Inline validation for insufficient cast.
-- Poster, Episode 1 hook, cast roles, relationship board.
-- Social unlock via copied share/caption or role claim before Episode 2.
-- Restorable share URL and downloadable SVG poster.
+- Deprecated index: https://knoomdevbot.github.io/viral-product-experiments/
+- Old ShowDrop URL: https://knoomdevbot.github.io/viral-product-experiments/friend-group-show/ now redirects to Group Game Maker.
+- VibeCard AI remains available as a legacy static experiment: https://knoomdevbot.github.io/viral-product-experiments/profile-card/
 
-## Deployment
+## Status
 
-Hosted on GitHub Pages from `docs/` on `main`. No backend, no secrets, no paid infrastructure.
+No new product work should be started here. Use `group-game-maker` for the standalone MVP and future iterations.
 
-## Limitations / next slice
-
-- No server-side persistence or real analytics yet.
-- SVG export is intentionally lightweight; PNG export and native social share images are next-slice items.
-- Feedback is via mailto links until a backend/form is added.
+This repo is intentionally left unarchived so GitHub Pages can keep legacy links and redirect users to the new production app.
